@@ -1,7 +1,24 @@
+'use server'
+import TabsNav from '@/components/tabs-nav';
+import { mainNetArray, netRoutes } from '@/utils/const';
+import AccountInfo from '@/components/account-info';
+import { Divider } from '@mui/material';
+import { Input } from '@mui/base/Input';
+import React from 'react';
+import AccountBalance from '@/components/account-balance';
+import Controls from '@/components/controls';
 
-export default function Home() {
+export default async function Home() {
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main
+      className="text-neutral-50 flex flex-col md:w-1/2 xl:w-1/3 m-auto min-[360px]:w-full justify-center h-full gap-y-2">
+      <AccountInfo/>
+      <div className="w-full flex justify-between items-center">
+        <TabsNav isChain/>
+        <AccountBalance/>
+      </div>
+      <Controls/>
     </main>
   );
 }

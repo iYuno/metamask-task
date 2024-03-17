@@ -12,6 +12,7 @@
         rounded-md border border-neutral-800 bg-neutral-950 hover:border-neutral-600
         outline-none
         focus-visible:border-neutral-200 min-[320px]:text-xs md:text-sm
+        placeholder-neutral-400
     }
 
     .tab {
