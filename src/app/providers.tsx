@@ -8,7 +8,7 @@ const host =
 
 const sdkOptions = {
   logging: { developerMode: false },
-  checkInstallationImmediately: true,
+  checkInstallationImmediately: false,
   dappMetadata: {
     name: 'Next-Metamask-Boilerplate',
     url: host, // using the host constant defined above

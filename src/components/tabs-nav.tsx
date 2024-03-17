@@ -3,6 +3,7 @@ import { useSDK } from '@metamask/sdk-react';
 import { memo, useEffect, useState } from 'react';
 import { Tab, Tabs, TabsList } from '@mui/base';
 import { mainNetArray, testNetArray } from '@/utils/const';
+import { Skeleton } from '@mui/material';
 
 interface ITabs {
   tabsArray?: {
@@ -16,7 +17,7 @@ interface ITabs {
 
 function TabsNav({ tabsArray, isChain }: ITabs) {
 
-  const { provider, chainId: chain } = useSDK()
+  const { provider, chainId: chain, connected } = useSDK()
   const [network, setNetwork] = useState<string | null>(null)
   const [chains, setChains] = useState<{label: string, chainId: string}[]>()
 
@@ -32,11 +33,15 @@ function TabsNav({ tabsArray, isChain }: ITabs) {
     }
   }, [chain, tabsArray]);
 
+  if (!connected) {
+    return null
+  }
+
   if (isChain) {
     return (
       <>
         {
-          chain  ?
+          chain ?
             <Tabs
               value={chain}
               aria-label="chain tabs"
@@ -63,7 +68,7 @@ function TabsNav({ tabsArray, isChain }: ITabs) {
                   </Tab>
                 ))}
               </TabsList>
-            </Tabs> : null
+            </Tabs> : <Skeleton className="rounded-md w-32 h-full bg-neutral-800"/>
         }
       </>
     )
@@ -99,7 +104,7 @@ function TabsNav({ tabsArray, isChain }: ITabs) {
                 </Tab>
               ))}
             </TabsList>
-          </Tabs> : null}
+          </Tabs> : <Skeleton className="rounded-md w-32 h-full bg-neutral-800"/>}
       </>
     )
   }

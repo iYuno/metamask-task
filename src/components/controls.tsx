@@ -8,13 +8,14 @@ import { testNetArray } from '@/utils/const';
 const receiverRegex = /^0x[0-9a-fA-F]{40}$/;
 export default function Controls() {
 
-  const { sdk, connected, connecting, chainId: chain, provider, account } = useSDK()
+  const { sdk, connected, balanceProcessing, connecting, chainId: chain, provider, account } = useSDK()
   const [isTestNetwork, setIsTestNetwork] = useState<boolean>(false)
 
   const connect = async() => {
     try {
       sdk?.connect()
     } catch (err) {
+
       console.warn(err)
     }
   };
@@ -98,9 +99,9 @@ export default function Controls() {
           <Button
             disabled={connecting}
             onClick={() => connect()}
-            className="transition-all ease-out outline-none self-center min-[320px]:text-xs md:text-sm py-2 leading-6 rounded-md px-3 border border-neutral-800 hover:border-neutral-600 focus:border-neutral-200"
+            className="transition-all ease-out outline-none capitalize self-center min-[320px]:text-xs md:text-sm py-2 leading-6 rounded-md px-3 border border-neutral-800 hover:border-neutral-600 focus:border-neutral-200"
           >
-            {connecting ? 'connecting' : 'connect'}
+            connect wallet
           </Button>
       }
     </>
