@@ -1,7 +1,6 @@
 'use client'
 import { useSDK } from '@metamask/sdk-react';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { memo, useCallback, useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { Tab, Tabs, TabsList } from '@mui/base';
 import { mainNetArray, testNetArray } from '@/utils/const';
 
@@ -17,18 +16,9 @@ interface ITabs {
 
 function TabsNav({ tabsArray, isChain }: ITabs) {
 
-  const pathname = usePathname()
-  const router = useRouter()
-  const searchParams = useSearchParams()
   const { provider, chainId: chain } = useSDK()
   const [network, setNetwork] = useState<string | null>(null)
   const [chains, setChains] = useState<{label: string, chainId: string}[]>()
-
-  const paramsHandler = useCallback((value: string) => {
-    const params = new URLSearchParams(searchParams.toString())
-    params.set('chain', value)
-    return params
-  }, [searchParams])
 
   useEffect(() => {
     if (chain) {
@@ -40,7 +30,7 @@ function TabsNav({ tabsArray, isChain }: ITabs) {
         setChains(mainNetArray)
       }
     }
-  }, [chain]);
+  }, [chain, tabsArray]);
 
   if (isChain) {
     return (
