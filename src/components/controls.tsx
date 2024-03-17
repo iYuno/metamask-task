@@ -97,7 +97,6 @@ export default function Controls() {
             </button>
           </form> :
           <Button
-            disabled={connecting}
             onClick={() => connect()}
             className="transition-all ease-out outline-none capitalize self-center min-[320px]:text-xs md:text-sm py-2 leading-6 rounded-md px-3 border border-neutral-800 hover:border-neutral-600 focus:border-neutral-200"
           >
