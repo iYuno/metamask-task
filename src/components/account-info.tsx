@@ -3,7 +3,6 @@ import { useSDK } from '@metamask/sdk-react';
 import { Copy, LogOut } from 'lucide-react';
 import React from 'react';
 import { Button, Popper } from '@mui/base';
-import { Simulate } from 'react-dom/test-utils';
 import TabsNav from '@/components/tabs-nav';
 import { netRoutes } from '@/utils/const';
 import { Divider } from '@mui/material';

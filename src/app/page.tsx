@@ -1,9 +1,6 @@
 'use server'
 import TabsNav from '@/components/tabs-nav';
-import { mainNetArray, netRoutes } from '@/utils/const';
 import AccountInfo from '@/components/account-info';
-import { Divider } from '@mui/material';
-import { Input } from '@mui/base/Input';
 import React from 'react';
 import AccountBalance from '@/components/account-balance';
 import Controls from '@/components/controls';
