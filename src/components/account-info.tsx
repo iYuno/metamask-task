@@ -56,7 +56,7 @@ export default function AccountInfo() {
               >
                 <Copy className="transition-all ease-out stroke-transparent stroke-2 min-[320px]:size-3 md:size-3.5"/>
                 <p
-                  className="text-current min-[320px]:text-xs md:text-sm cursor-pointer">{account?.substring(0, 4)}...{account?.substring(account?.length - 4)}
+                  className="text-current min-[320px]:text-xs md:text-sm cursor-pointer">{account?.substring(0, 8)}...{account?.substring(account?.length - 8)}
                 </p>
               </button>
               <Popper

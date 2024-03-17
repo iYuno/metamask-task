@@ -10,7 +10,8 @@ export default function AccountBalance() {
     <>
       {
         balance ? <p
-          className="min-[320px]:text-xs md:text-sm capitalize">{(parseInt(balance) / 1000000000000000000).toFixed(2)} ETH
+          className="min-[320px]:text-xs md:text-sm capitalize">{balance} ETH
+          {/*{(parseInt(balance) / 1000000000000000000).toFixed(2)}*/}
         </p> : null
       }
     </>
